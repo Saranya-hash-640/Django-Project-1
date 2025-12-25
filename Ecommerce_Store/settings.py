@@ -91,17 +91,17 @@ WSGI_APPLICATION = 'Ecommerce_Store.wsgi.application'
 #     } 
 # }
 
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'saranyanm$your_db_name',  # The full name from the DB tab
+        'NAME': 'saranyanm$Ecomm_db_3',
         'USER': 'saranyanm',
-        'PASSWORD': 'your_mysql_password', # The password you set on the DB tab
-        'HOST': 'saranyanm.mysql.pythonanywhere-services.com', # The host address
+        'PASSWORD': 'root',
+        'HOST': 'saranyanm.mysql.pythonanywhere-services.com',
         'PORT': '3306',
     }
 }
-
 
 
 
