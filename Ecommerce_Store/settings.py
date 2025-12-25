@@ -76,20 +76,32 @@ WSGI_APPLICATION = 'Ecommerce_Store.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
-DATABASES = {
+# DATABASES = {
     
-    'default': { 
-        'ENGINE': 'django.db.backends.mysql', 
-        'NAME': 'Ecomm_db_3',          # Your MySQL database name 
-        'USER': 'root',             # Your MySQL username 
-        'PASSWORD': 'root',  # Your MySQL password 
-        'HOST': 'localhost',        # Usually localhost 
-        'PORT': '3306',             # Default MySQL port 
-        'OPTIONS': { 
-            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'", 
-        }, 
-    } 
+#     'default': { 
+#         'ENGINE': 'django.db.backends.mysql', 
+#         'NAME': 'Ecomm_db_3',          # Your MySQL database name 
+#         'USER': 'root',             # Your MySQL username 
+#         'PASSWORD': 'root',  # Your MySQL password 
+#         'HOST': 'localhost',        # Usually localhost 
+#         'PORT': '3306',             # Default MySQL port 
+#         'OPTIONS': { 
+#             'init_command': "SET sql_mode='STRICT_TRANS_TABLES'", 
+#         }, 
+#     } 
+# }
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'saranyanm$your_db_name',  # The full name from the DB tab
+        'USER': 'saranyanm',
+        'PASSWORD': 'your_mysql_password', # The password you set on the DB tab
+        'HOST': 'saranyanm.mysql.pythonanywhere-services.com', # The host address
+        'PORT': '3306',
+    }
 }
+
 
 
 
