@@ -1,0 +1,42 @@
+{% extends "ecomm_app/base.html" %}
+
+{% block title %}Checkout{% endblock %}
+
+{% block content %}
+<h2>Checkout</h2>
+
+{% if cart_items %}
+<table class="table">
+    <thead>
+        <tr>
+            <th>Product</th>
+            <th>Qty</th>
+            <th>Price</th>
+            <th>Total</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for item in cart_items %}
+        <tr>
+            <td>{{ item.product.name }}</td>
+            <td>{{ item.quantity }}</td>
+            <td>{{ item.product.price }}</td>
+            <td>{{ item.total_price }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<p><strong>Grand Total: </strong>{{ cart.total }}</p>
+
+<form method="POST">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-success">Place Order</button>
+</form>
+
+{% else %}
+<p>Your cart is empty.</p>
+{% endif %}
+
+<a href="{% url 'ecomm_app:cart' %}">Back to Cart</a>
+{% endblock %}

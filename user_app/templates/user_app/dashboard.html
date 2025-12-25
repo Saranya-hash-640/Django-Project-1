@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+</head>
+<body>
+   {% extends 'user_app/base.html' %}
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+<div class="dashboard-container">
+    <h2>Welcome, {{ username }}!</h2>
+
+    {% if messages %}
+        <div class="messages">
+            {% for message in messages %}
+                <p>{{ message }}</p>
+            {% endfor %}
+        </div>
+    {% endif %}
+
+    <div class="card">
+        <h3>Update Profile</h3>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn">Save Changes</button>
+        </form>
+    </div>
+
+    <a href="{% url 'user_app:logout' %}" class="btn logout-btn">Logout</a>
+</div>
+
+<style>
+.dashboard-container {
+    max-width: 600px;
+    margin: 50px auto;
+    font-family: Arial, sans-serif;
+}
+.card {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+}
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background: #007bff;
+    color: #fff;
+    border-radius: 6px;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+}
+.btn:hover {
+    background: #0056b3;
+}
+.logout-btn {
+    background: #dc3545;
+}
+.logout-btn:hover {
+    background: #a71d2a;
+}
+.messages {
+    margin-bottom: 15px;
+    padding: 10px;
+    background-color: #f8d7da;
+    color: #721c24;
+    border-radius: 5px;
+}
+</style>
+{% endblock %}
+
+</body>
+</html>

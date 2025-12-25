@@ -1,0 +1,49 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body> -->
+    {% extends 'ecomm_app/base.html' %}
+{% load static %}
+
+{% block title %}Products{% endblock %}
+
+{% block content %}
+<h2>All Products</h2>
+
+{% if products %}
+<div class="row">
+    {% for product in products %}
+    <div class="col-md-3 mb-4">
+        <div class="card h-100">
+            {% if product.image %}
+                <img src="{{ product.image.url }}" class="card-img-top" alt="{{ product.name }}">
+            {% else %}
+                <img src="{% static 'images/placeholder.png' %}" class="card-img-top" alt="No image available">
+            {% endif %}
+            <div class="card-body">
+                <h5 class="card-title">{{ product.name }}</h5>
+                <p class="card-text">₹{{ product.price }}</p>
+                <a href="{% url 'ecomm_app:product_detail' product.pk %}" class="btn btn-primary btn-sm">View</a>
+                <a href="{% url 'ecomm_app:add_to_cart' product.pk %}" class="btn btn-success btn-sm">Add to Cart</a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% else %}
+<p>No products available.</p>
+{% endif %}
+
+{% endblock %}
+
+
+
+    
+
+
+<!-- </body>
+</html> -->

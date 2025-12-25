@@ -1,0 +1,60 @@
+{% extends 'ecomm_app/base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+
+<!-- Featured Products Carousel -->
+{% if products %}
+<div id="featuredCarousel" class="carousel slide mb-5" data-bs-ride="carousel">
+    <div class="carousel-inner">
+        {% for product in products|slice:":5" %}
+        <div class="carousel-item {% if forloop.first %}active{% endif %}">
+            {% if product.image %}
+            <img src="{{ product.image.url }}" class="d-block w-100" style="max-height: 400px; object-fit: contain;" alt="{{ product.name }}">
+            {% else %}
+            <img src="https://via.placeholder.com/800x400?text=No+Image" class="d-block w-100" style="max-height: 100px; object-fit: cover;" alt="No Image">
+            {% endif %}
+            <div class="carousel-caption bg-dark bg-opacity-50 p-2 rounded">
+                <h5>{{ product.name }}</h5>
+                <p>₹{{ product.price }}</p>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#featuredCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#featuredCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon"></span>
+    </button>
+</div>
+{% endif %}
+
+<!-- New Arrivals Section -->
+<h2 class="mb-4">New Arrivals</h2>
+<div class="row">
+    {% for product in products %}
+    <div class="col-md-3 mb-4">
+        <div class="card h-100">
+            {% if product.image %}
+            <img src="{{ product.image.url }}" class="card-img-top" alt="{{ product.name }}">
+            {% else %}
+            <img src="https://via.placeholder.com/400x300?text=No+Image" class="card-img-top" alt="No Image">
+            {% endif %}
+            <div class="card-body d-flex flex-column">
+                <h5 class="card-title">{{ product.name }}</h5>
+                <p class="card-text">₹{{ product.price }}</p>
+                <div class="mt-auto">
+                    <a href="{% url 'ecomm_app:product_detail' product.pk %}" class="btn btn-primary btn-sm">View</a>
+                    <a href="{% url 'ecomm_app:add_to_cart' product.pk %}" class="btn btn-success btn-sm">Add to Cart</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% empty %}
+    <p>No products found.</p>
+    {% endfor %}
+</div>
+
+{% endblock %}

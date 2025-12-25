@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Online Bookstore</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<style>
+    card{
+        border: 30px;
+        border-color: black;
+    }
+
+    h2{
+        color: rgb(13, 14, 14);
+    }
+</style>
+
+<body class="bg-gray-100">
+
+    <!-- Navbar -->
+    <nav class="bg-gray-900 text-white py-4 px-8 flex justify-between items-center shadow">
+        <h1 class="text-xl font-semibold">My Online Bookstore</h1>
+        <div class="space-x-6">
+            <a href="#" class="hover:text-gray-300">Home</a>
+            <a href="#" class="hover:text-gray-300">Contact</a>
+            
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="px-10 py-8 flex gap-10">
+
+        <!-- Sidebar -->
+        <aside class="w-64 bg-white rounded-xl shadow p-6">
+            <h2 class="text-lg font-semibold mb-4 flex items-center gap-2">
+                📚 Categories
+            </h2>
+            <ul class="space-y-2 text-gray-700">
+                <li class="hover:text-blue-600 cursor-pointer">Fiction</li>
+                <li class="hover:text-blue-600 cursor-pointer">Comedy</li>
+            </ul>
+        </aside>
+
+        <!-- Books Section -->
+        <div class="flex-1">
+            <div class="flex justify-between items-center mb-6">
+                <h2 class="text-xl font-semibold">All Books</h2>
+
+                <!-- Search -->
+                <form method="GET" class="flex gap-2">
+                    <input 
+                        type="text" 
+                        name="q" 
+                        placeholder="Search by title or author"
+                        class="w-64 px-3 py-2 border rounded-lg shadow-sm focus:ring focus:ring-blue-300"
+                    >
+                    <button 
+                        type="submit" 
+                        class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700">
+                        Search
+                    </button>
+                </form>
+            </div>
+
+            <!-- Book Cards Grid -->
+            <div class="grid grid-cols-3 gap-6">
+
+                <!-- Example Book Card -->
+                <div class="bg-white p-5 shadow rounded-xl hover:shadow-md transition">
+                    <h3 class="text-md font-semibold">The Silent Patient</h3>
+                    <p class="text-gray-600 text-sm">By Alex Michaelides</p>
+                    <p class="text-blue-600 font-semibold mt-2">287.00</p>
+                    <img src="https://rkbookstore.com/wp-content/uploads/2024/07/pixelcut-export-14-1200x1719.jpeg" alt="" width="50px">
+                    
+                </div>
+
+                <div class="bg-white p-5 shadow rounded-xl hover:shadow-md transition">
+                    <h3 class="text-md font-semibold">Wings of Fire</h3>
+                    <p class="text-gray-600 text-sm">By APJ Abdul Kalam</p>
+                    <p class="text-blue-600 font-semibold mt-2">270.00</p>
+                    <img src="https://www.indicinspirations.com/cdn/shop/products/wings-of-fire-an-autobiography-of-abdul-kalam-books-908170.jpg?v=1627154447&width=565" alt=""width="70px">
+                </div>
+
+                <div class="bg-white p-5 shadow rounded-xl hover:shadow-md transition">
+                    <h3 class="text-md font-semibold">The Alchemist</h3>
+                    <p class="text-gray-600 text-sm">By Paulo Coelho</p>
+                    <p class="text-blue-600 font-semibold mt-2">200.00</p>
+                    <img src="https://rkbookstore.com/wp-content/uploads/2024/07/WhatsApp-Image-2024-07-21-at-16.55.39_5c3c8e91.jpg" alt="" width="50px">
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

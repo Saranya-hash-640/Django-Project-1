@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Category List</title>
+</head>
+<body>
+    <h1>Category List</h1>
+
+    <div style="display:flex; flex-wrap:wrap; gap:20px;">
+        {% for category in categories %}
+            <div style="border:1px solid #ccc; padding:10px; width:200px; border-radius:10px;">
+                
+                <p><b>Category:</b> {{ category.category_name }}</p>
+                <p><b>Sub-Category:</b> {{ category.sub_category }}</p>
+
+                <a href="{% url 'edit_category' category.id %}" class="btn btn-warning">Edit</a>
+                <a href="{% url 'delete_category' category.id %}" class="btn btn-danger">Delete</a>
+
+            </div>
+        {% empty %}
+            <p>No category found.</p>
+        {% endfor %}
+    </div>
+
+</body>
+</html>
+

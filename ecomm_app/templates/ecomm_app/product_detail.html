@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   {% extends 'ecomm_app/base.html' %}
+
+{% block title %}{{ product.name }}{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-5">
+        {% if product.image %}
+            <img src="{{ product.image.url }}" class="img-fluid" alt="{{ product.name }}">
+        {% endif %}
+    </div>
+
+    <div class="col-md-7">
+        <h2>{{ product.name }}</h2>
+        <p>{{ product.description }}</p>
+        <h4>₹{{ product.price }}</h4>
+
+        {% if product.stock > 0 %}
+            <a href="{% url 'ecomm_app:add_to_cart' product.id %}"
+               class="btn btn-success">
+               Add to Cart
+            </a>
+        {% else %}
+            <span class="text-danger">Out of Stock</span>
+        {% endif %}
+    </div>
+</div>
+
+{% if recently_viewed %}
+<hr>
+<h4>Recently Viewed Products</h4>
+<div class="row">
+    {% for item in recently_viewed %}
+        <div class="col-md-3">
+            <p>{{ item.name }}</p>
+            <a href="{% url 'ecomm_app:product_detail' item.id %}">View</a>
+        </div>
+    {% endfor %}
+</div>
+{% endif %}
+{% endblock %}
+
+
+
+</body>
+</html>
