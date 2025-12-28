@@ -97,11 +97,15 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'saranyanm$Ecomm_db_3',
         'USER': 'saranyanm',
-        'PASSWORD': 'root',
+        'PASSWORD': 'Sunshine640@',
         'HOST': 'saranyanm.mysql.pythonanywhere-services.com',
         'PORT': '3306',
+        'OPTIONS': {
+            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
+        },
     }
 }
+
 
 
 
