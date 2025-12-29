@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-^p_i6y1gsaou84bc@ya)$&hg$02vdl3+mio@i$b9fky56%qwft'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['saranyanm.pythonanywhere.com','127.0.0.1', 'localhost']
 
@@ -77,34 +77,26 @@ WSGI_APPLICATION = 'Ecommerce_Store.wsgi.application'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
 DATABASES = {
-    
-    'default': { 
-        'ENGINE': 'django.db.backends.mysql', 
-        'NAME': 'Ecomm_db_3',          # Your MySQL database name 
-        'USER': 'saranyanm',             # Your MySQL username 
-        'PASSWORD': 'Sunshine640@',  # Your MySQL password 
-        'HOST':  'saranyanm.mysql.pythonanywhere-services.com',        # Usually localhost 
-        'PORT': '3306',             # Default MySQL port 
-        'OPTIONS': { 
-            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'", 
-        }, 
-    } 
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
 }
 
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.mysql',
-#         'NAME': 'saranyanm$Ecomm_db_3',
-#         'USER': 'saranyanm',
-#         'PASSWORD': 'Sunshine640@',
-#         'HOST': 'saranyanm.mysql.pythonanywhere-services.com',
-#         'PORT': '3306',
-#         'OPTIONS': {
-#             'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
-#         },
-#     }
-# }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'saranyanm$Ecomm_db_3',
+        'USER': 'saranyanm',
+        'PASSWORD': 'Sunshine640@',
+        'HOST': 'saranyanm.mysql.pythonanywhere-services.com',
+        'PORT': '3306',
+        'OPTIONS': {
+            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
+        },
+    }
+}
 
 
 
