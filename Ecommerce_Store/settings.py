@@ -81,8 +81,8 @@ DATABASES = {
     'default': { 
         'ENGINE': 'django.db.backends.mysql', 
         'NAME': 'Ecomm_db_3',          # Your MySQL database name 
-        'USER': 'root',             # Your MySQL username 
-        'PASSWORD': 'root',  # Your MySQL password 
+        'USER': 'saranyanm',             # Your MySQL username 
+        'PASSWORD': 'Sunshine640@',  # Your MySQL password 
         'HOST':  'saranyanm.mysql.pythonanywhere-services.com',        # Usually localhost 
         'PORT': '3306',             # Default MySQL port 
         'OPTIONS': { 
