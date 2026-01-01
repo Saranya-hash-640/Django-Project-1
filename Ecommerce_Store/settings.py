@@ -98,7 +98,20 @@ DATABASES = {
     }
 }
 
-
+# DATABASES = {
+    
+#     'default': { 
+#         'ENGINE': 'django.db.backends.mysql', 
+#         'NAME': 'Ecomm_db_3',          # Your MySQL database name 
+#         'USER': 'root',             # Your MySQL username 
+#         'PASSWORD': 'root',  # Your MySQL password 
+#         'HOST': 'localhost',        # Usually localhost 
+#         'PORT': '3306',             # Default MySQL port 
+#         'OPTIONS': { 
+#             'init_command': "SET sql_mode='STRICT_TRANS_TABLES'", 
+#         }, 
+#     } 
+# }
 
 
 
